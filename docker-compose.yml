@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   http2-bomb:
-    build: .
+    image: ghcr.io/obrige/http2-bomb:main
     container_name: http2-bomb
     ports:
       - "8080:8080"
@@ -13,4 +13,4 @@ services:
       driver: "json-file"
       options:
         max-size: "10m"
-        max-file: "3
+        max-file: "3"
