@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  http2-bomb:
+    build: .
+    container_name: http2-bomb
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3
