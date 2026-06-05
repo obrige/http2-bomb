@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   http2-bomb:
-    image: ghcr.io/obrige/http2-bomb:main
+    image: ghcr.io/obrige/http2-bomb:latest
     container_name: http2-bomb
     ports:
       - "8080:8080"
