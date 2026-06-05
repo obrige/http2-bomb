@@ -1,5 +1,8 @@
 # HTTP/2 Bomb — CVE-2026-49975
 
+[![Docker Build & Publish](https://github.com/obrige/http2-bomb/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/obrige/http2-bomb/actions/workflows/docker-publish.yml)
+[![GHCR](https://img.shields.io/badge/ghcr.io-obrige%2Fhttp2--bomb-blue)](https://github.com/obrige/http2-bomb/pkgs/container/http2-bomb)
+
 HTTP/2 Stream Amplification PoC · Docker · Web Console
 
 ## Vulnerability
@@ -24,11 +27,20 @@ docker compose up -d
 
 Open http://localhost:8080
 
+> Uses pre-built image from `ghcr.io/obrige/http2-bomb:main`. No local build required.
+
 ### Manual
 
 ```bash
 pip install -r requirements.txt
 uvicorn app.main:app --host 0.0.0.0 --port 8080
+```
+
+### Pull Image Directly
+
+```bash
+docker pull ghcr.io/obrige/http2-bomb:main
+docker run -d -p 8080:8080 ghcr.io/obrige/http2-bomb:main
 ```
 
 ## Features
@@ -38,6 +50,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8080
 - Configurable attack parameters
 - SSE real-time log streaming
 - Docker one-click deployment
+- CI/CD auto-publish to GHCR
 
 ## Disclaimer
 
