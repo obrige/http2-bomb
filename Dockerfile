@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 LABEL org.opencontainers.image.title="HTTP/2 Bomb - CVE-2026-49975"
 LABEL org.opencontainers.image.description="HTTP/2 Stream Amplification PoC"
