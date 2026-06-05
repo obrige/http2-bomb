@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 LABEL org.opencontainers.image.title="HTTP/2 Bomb - CVE-2026-49975"
 LABEL org.opencontainers.image.description="HTTP/2 Stream Amplification PoC"
@@ -15,7 +15,8 @@ RUN useradd -m -s /bin/bash bomber && \
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 COPY app/ ./app/
 
