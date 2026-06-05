@@ -304,12 +304,12 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     <div class="form-row">
       <div class="form-group">
         <label>并发连接数 · <span style="color:var(--accent);font-weight:700" id="connLabel">1</span></label>
-        <input type="range" id="connections" min="1" max="64" value="1" oninput="onSlider()">
+        <input type="range" id="connections" min="1" max="1024" value="1" oninput="onSlider()">
         <div class="range-value" id="connHint">1 连接 = 128 并发流</div>
       </div>
       <div class="form-group">
         <label>持续时间 · <span style="color:var(--accent);font-weight:700" id="holdLabel">10</span> 秒</label>
-        <input type="range" id="hold" min="1" max="120" value="10" oninput="onSlider()">
+        <input type="range" id="hold" min="1" max="3600" value="10" oninput="onSlider()">
         <div class="range-value" id="holdHint">预计总载荷 ~3.2 MB</div>
       </div>
     </div>
@@ -379,9 +379,14 @@ function onSlider() {
   const hold = +document.getElementById('hold').value;
   document.getElementById('connLabel').textContent = conn;
   document.getElementById('holdLabel').textContent = hold;
-  document.getElementById('connHint').textContent = `${conn} 连接 = ${conn * 128} 并发流`;
-  const kb = (conn * 128 * 32.7).toFixed(0);
-  document.getElementById('holdHint').textContent = `预计总载荷 ~${(kb/1024).toFixed(1)} MB · 持续 ${hold} 秒`;
+  const streams = conn * 128;
+  const gb = (streams * 32.7 / 1024);
+  document.getElementById('connHint').textContent = `${conn} 连接 = ${streams.toLocaleString()} 并发流`;
+  if (gb >= 1) {
+    document.getElementById('holdHint').textContent = `预计总载荷 ~${gb.toFixed(1)} GB · 持续 ${hold} 秒`;
+  } else {
+    document.getElementById('holdHint').textContent = `预计总载荷 ~${(gb*1024).toFixed(1)} MB · 持续 ${hold} 秒`;
+  }
 }
 
 async function checkTarget() {
@@ -509,4 +514,4 @@ connectSSE();
 onSlider();
 </script>
 </body>
-      </html>
+</html>
