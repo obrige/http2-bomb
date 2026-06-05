@@ -53,14 +53,9 @@ body {
   mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 20%, transparent 70%);
 }
 
-.container {
-  position: relative; z-index: 1;
-  max-width: 1040px; margin: 0 auto; padding: 24px 20px 40px;
-}
+.container { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 24px 20px 40px; }
 
-.header {
-  text-align: center; padding: 48px 0 36px; position: relative;
-}
+.header { text-align: center; padding: 48px 0 36px; position: relative; }
 .header::after {
   content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
   width: 60px; height: 2px;
@@ -82,10 +77,7 @@ body {
   width: 6px; height: 6px; background: var(--danger); border-radius: 50%;
   animation: dot-pulse 1.5s ease-in-out infinite;
 }
-@keyframes dot-pulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: .3; }
-}
+@keyframes dot-pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
 .header h1 {
   font-size: 38px; font-weight: 800; letter-spacing: 4px;
   background: linear-gradient(135deg, #f04b2e 0%, #f59e0b 50%, #f04b2e 100%);
@@ -94,18 +86,12 @@ body {
   animation: title-shift 4s linear infinite;
   margin-bottom: 10px;
 }
-@keyframes title-shift {
-  to { background-position: 200% center; }
-}
-.header .subtitle {
-  color: var(--text-dim); font-size: 14px; letter-spacing: 1px;
-}
+@keyframes title-shift { to { background-position: 200% center; } }
+.header .subtitle { color: var(--text-dim); font-size: 14px; letter-spacing: 1px; }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px; margin-bottom: 18px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 18px;
   transition: border-color .3s, box-shadow .3s;
   position: relative; overflow: hidden;
 }
@@ -116,20 +102,18 @@ body {
 .card:hover { border-color: var(--border-hover); box-shadow: var(--glow); }
 .card-title {
   font-size: 15px; font-weight: 700; margin-bottom: 18px;
-  display: flex; align-items: center; gap: 10px;
-  color: var(--text);
+  display: flex; align-items: center; gap: 10px; color: var(--text);
 }
 .card-title .icon {
   width: 28px; height: 28px; border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
 }
 .icon-target { background: rgba(240,75,46,.1); color: var(--accent); }
 .icon-params { background: rgba(245,158,11,.1); color: var(--warning); }
 .icon-stats { background: rgba(16,185,129,.1); color: var(--success); }
 .icon-log { background: rgba(100,140,255,.1); color: #648cff; }
 
-.form-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.form-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end; }
 .form-group { flex: 1; min-width: 120px; }
 .form-group label {
   display: block; font-size: 12px; color: var(--text-mid);
@@ -146,29 +130,26 @@ body {
   border-color: var(--accent); box-shadow: 0 0 0 3px rgba(240,75,46,.08);
 }
 .form-group input::placeholder { color: var(--text-dim); }
+.param-hint {
+  font-size: 12px; color: var(--accent); margin-top: 6px; font-weight: 600;
+  min-height: 18px;
+}
 
-input[type="range"] {
-  -webkit-appearance: none; width: 100%; height: 6px;
-  background: var(--border); border-radius: 3px; outline: none;
-  cursor: pointer; padding: 0; border: none;
+.preset-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.preset {
+  padding: 4px 12px; border-radius: 14px; font-size: 11px;
+  cursor: pointer; border: 1px solid var(--border);
+  background: transparent; color: var(--text-dim);
+  font-family: var(--font); transition: all .2s;
 }
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 20px; height: 20px;
-  background: var(--accent); border-radius: 50%;
-  cursor: pointer; box-shadow: 0 0 12px rgba(240,75,46,.4);
-  transition: transform .15s;
-}
-input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-.range-value {
-  font-size: 13px; color: var(--accent); margin-top: 6px; font-weight: 700;
-}
+.preset:hover { border-color: var(--accent); color: var(--accent); background: rgba(240,75,46,.06); }
+.preset.active { border-color: var(--accent); color: var(--accent); background: rgba(240,75,46,.08); }
 
 .btn {
   padding: 10px 22px; border: none; border-radius: var(--radius-sm);
   font-size: 14px; font-weight: 700; cursor: pointer;
   font-family: var(--font); transition: all .2s;
-  display: inline-flex; align-items: center; gap: 7px;
-  letter-spacing: .5px;
+  display: inline-flex; align-items: center; gap: 7px; letter-spacing: .5px;
 }
 .btn:active { transform: scale(.96); }
 .btn-primary {
@@ -177,29 +158,19 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 }
 .btn-primary:hover { box-shadow: 0 6px 24px rgba(240,75,46,.4); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: .35; cursor: not-allowed; transform: none; box-shadow: none; }
-.btn-danger {
-  background: var(--danger); color: #fff;
-  box-shadow: 0 4px 16px rgba(244,63,94,.2);
-}
+.btn-danger { background: var(--danger); color: #fff; box-shadow: 0 4px 16px rgba(244,63,94,.2); }
 .btn-danger:hover { box-shadow: 0 6px 24px rgba(244,63,94,.35); }
-.btn-outline {
-  background: transparent; border: 1px solid var(--border); color: var(--text-mid);
-}
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-mid); }
 .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
 .btn-sm { padding: 5px 14px; font-size: 12px; border-radius: 6px; }
 .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.status-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 14px;
-}
+.status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; }
 .stat-card {
   background: var(--surface); padding: 16px 20px; border-radius: 10px;
   border: 1px solid var(--border); text-align: center;
 }
-.stat-value {
-  font-size: 30px; font-weight: 800; font-family: var(--mono);
-}
+.stat-value { font-size: 30px; font-weight: 800; font-family: var(--mono); }
 .stat-value.accent { color: var(--accent2); }
 .stat-value.danger { color: var(--danger); }
 .stat-value.warning { color: var(--warning); }
@@ -217,10 +188,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 .log-line.err { color: var(--danger); }
 .log-line.warn { color: var(--warning); }
 .log-line.muted { color: var(--text-dim); }
-.log-toolbar {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 10px;
-}
+.log-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .log-counter { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
 
 .disclaimer-box {
@@ -235,10 +203,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 .result-fail { color: var(--danger); font-weight: 600; }
 .result-info { color: var(--text-dim); }
 
-.footer {
-  text-align: center; padding: 32px 0 16px; color: var(--text-dim);
-  font-size: 11px; letter-spacing: 1px;
-}
+.footer { text-align: center; padding: 32px 0 16px; color: var(--text-dim); font-size: 11px; letter-spacing: 1px; }
 
 .spinner {
   display: inline-block; width: 14px; height: 14px;
@@ -276,9 +241,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <span class="icon icon-target">🎯</span> 目标配置
-    </div>
+    <div class="card-title"><span class="icon icon-target">🎯</span> 目标配置</div>
     <div class="form-row">
       <div class="form-group" style="flex:2.5">
         <label>目标地址</label>
@@ -288,38 +251,35 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
         <label>端口</label>
         <input type="number" id="port" value="443" min="1" max="65535">
       </div>
-      <div class="form-group" style="flex:1.2;min-width:120px;display:flex;align-items:flex-end">
-        <button class="btn btn-outline" onclick="checkTarget()" id="btnCheck">
-          探测 HTTP/2
-        </button>
+      <div class="form-group" style="flex:1.2;min-width:120px">
+        <button class="btn btn-outline" onclick="checkTarget()" id="btnCheck">探测 HTTP/2</button>
       </div>
     </div>
     <div id="checkResult" style="margin-top:14px;font-size:13px;min-height:20px;"></div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <span class="icon icon-params">⚙️</span> 攻击参数
-    </div>
+    <div class="card-title"><span class="icon icon-params">⚙️</span> 攻击参数</div>
     <div class="form-row">
       <div class="form-group">
-        <label>并发连接数 · <span style="color:var(--accent);font-weight:700" id="connLabel">1</span></label>
-        <input type="range" id="connections" min="1" max="1024" value="1" oninput="onSlider()">
-        <div class="range-value" id="connHint">1 连接 = 128 并发流</div>
+        <label>并发连接数</label>
+        <input type="number" id="connections" value="1" min="1" oninput="updateParams()">
       </div>
       <div class="form-group">
-        <label>持续时间 · <span style="color:var(--accent);font-weight:700" id="holdLabel">10</span> 秒</label>
-        <input type="range" id="hold" min="1" max="3600" value="10" oninput="onSlider()">
-        <div class="range-value" id="holdHint">预计总载荷 ~3.2 MB</div>
+        <label>持续时间（秒）</label>
+        <input type="number" id="hold" value="10" min="1" oninput="updateParams()">
       </div>
     </div>
-    <div class="btn-group" style="margin-top:18px">
-      <button class="btn btn-primary" onclick="startAttack()" id="btnStart" disabled>
-        🚀 发射
-      </button>
-      <button class="btn btn-danger" onclick="stopAttack()" id="btnStop" disabled>
-        ⏹ 中止
-      </button>
+    <div class="preset-row">
+      <button class="preset" onclick="setPreset(1,10)">快速测试</button>
+      <button class="preset" onclick="setPreset(64,60)">标准打击</button>
+      <button class="preset" onclick="setPreset(256,300)">饱和轰炸</button>
+      <button class="preset" onclick="setPreset(1024,3600)">核弹洗地</button>
+    </div>
+    <div class="param-hint" id="paramHint">1 连接 = 128 并发流 · 预计载荷 ~0.0 GB</div>
+    <div class="btn-group" style="margin-top:14px">
+      <button class="btn btn-primary" onclick="startAttack()" id="btnStart" disabled>🚀 发射</button>
+      <button class="btn btn-danger" onclick="stopAttack()" id="btnStop" disabled>⏹ 中止</button>
       <span id="attackSpinner" style="display:none;align-items:center;gap:8px;color:var(--accent);font-size:13px">
         <span class="spinner"></span> 攻击进行中...
       </span>
@@ -327,9 +287,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <span class="icon icon-stats">📊</span> 实时战报
-    </div>
+    <div class="card-title"><span class="icon icon-stats">📊</span> 实时战报</div>
     <div class="status-grid" id="statsGrid">
       <div class="stat-card">
         <div class="stat-value accent" id="statSent">—</div>
@@ -351,9 +309,7 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <span class="icon icon-log">📜</span> 实时日志
-    </div>
+    <div class="card-title"><span class="icon icon-log">📜</span> 实时日志</div>
     <div class="log-toolbar">
       <span class="log-counter" id="logCounter">共 0 条</span>
       <button class="btn btn-outline btn-sm" onclick="clearLogs()">清屏</button>
@@ -374,19 +330,27 @@ let eventSource = null;
 let logCount = 0;
 let isRunning = false;
 
-function onSlider() {
-  const conn = +document.getElementById('connections').value;
-  const hold = +document.getElementById('hold').value;
-  document.getElementById('connLabel').textContent = conn;
-  document.getElementById('holdLabel').textContent = hold;
+function formatSize(streams) {
+  const totalMB = streams * 32.7 / 1024;
+  if (totalMB >= 1024) return (totalMB / 1024).toFixed(2) + ' GB';
+  if (totalMB >= 1) return totalMB.toFixed(1) + ' MB';
+  return (totalMB * 1024).toFixed(0) + ' KB';
+}
+
+function updateParams() {
+  const conn = +document.getElementById('connections').value || 0;
+  const hold = +document.getElementById('hold').value || 0;
   const streams = conn * 128;
-  const gb = (streams * 32.7 / 1024);
-  document.getElementById('connHint').textContent = `${conn} 连接 = ${streams.toLocaleString()} 并发流`;
-  if (gb >= 1) {
-    document.getElementById('holdHint').textContent = `预计总载荷 ~${gb.toFixed(1)} GB · 持续 ${hold} 秒`;
-  } else {
-    document.getElementById('holdHint').textContent = `预计总载荷 ~${(gb*1024).toFixed(1)} MB · 持续 ${hold} 秒`;
-  }
+  document.getElementById('paramHint').textContent =
+    `${conn.toLocaleString()} 连接 = ${streams.toLocaleString()} 并发流 · 预计载荷 ~${formatSize(streams)} · 持续 ${hold.toLocaleString()} 秒`;
+}
+
+function setPreset(conn, hold) {
+  document.getElementById('connections').value = conn;
+  document.getElementById('hold').value = hold;
+  document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  updateParams();
 }
 
 async function checkTarget() {
@@ -394,13 +358,10 @@ async function checkTarget() {
   const port = document.getElementById('port').value;
   const btn = document.getElementById('btnCheck');
   const res = document.getElementById('checkResult');
-
   if (!host) { res.innerHTML = '<span class="result-fail">请输入目标地址</span>'; return; }
-
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> 探测中';
   res.innerHTML = '<span class="result-info">正在检测目标 HTTP/2 支持情况...</span>';
-
   try {
     const r = await fetch(`/api/check?host=${encodeURIComponent(host)}&port=${port}`);
     const d = await r.json();
@@ -426,7 +387,8 @@ async function startAttack() {
   const connections = +document.getElementById('connections').value;
   const hold_seconds = +document.getElementById('hold').value;
   if (!host) return alert('请输入目标地址');
-
+  if (!connections || connections < 1) return alert('连接数至少为 1');
+  if (!hold_seconds || hold_seconds < 1) return alert('持续时间至少为 1 秒');
   setRunning(true);
   try {
     const r = await fetch('/api/attack', {
@@ -446,9 +408,7 @@ async function startAttack() {
 }
 
 async function stopAttack() {
-  try {
-    await fetch('/api/stop', {method: 'POST'});
-  } catch (e) {}
+  try { await fetch('/api/stop', {method: 'POST'}); } catch (e) {}
   setRunning(false);
 }
 
@@ -471,14 +431,8 @@ function addLogEl(el) {
   box.scrollTop = box.scrollHeight;
   logCount++;
   document.getElementById('logCounter').textContent = `共 ${logCount} 条`;
-  while (box.children.length > 300) {
-    box.firstChild.remove();
-    logCount = Math.max(0, logCount - 1);
-  }
-  const first = box.firstChild;
-  if (box.children.length === 1 && first.classList.contains('muted')) {
-    first.remove();
-  }
+  while (box.children.length > 300) { box.firstChild.remove(); logCount = Math.max(0, logCount - 1); }
+  if (box.children.length === 1 && box.firstChild.classList.contains('muted')) box.firstChild.remove();
 }
 
 function connectSSE() {
@@ -511,7 +465,7 @@ setInterval(async () => {
 }, 1000);
 
 connectSSE();
-onSlider();
+updateParams();
 </script>
 </body>
-</html>
+  </html>
