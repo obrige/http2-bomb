@@ -27,7 +27,7 @@ docker compose up -d
 
 Open http://localhost:8080
 
-> Uses pre-built image from `ghcr.io/obrige/http2-bomb:main`. No local build required.
+> Uses pre-built image from `ghcr.io/obrige/http2-bomb:latest`. No local build required.
 
 ### Manual
 
@@ -39,8 +39,8 @@ uvicorn app.main:app --host 0.0.0.0 --port 8080
 ### Pull Image Directly
 
 ```bash
-docker pull ghcr.io/obrige/http2-bomb:main
-docker run -d -p 8080:8080 ghcr.io/obrige/http2-bomb:main
+docker pull ghcr.io/obrige/http2-bomb:latest
+docker run -d -p 8080:8080 ghcr.io/obrige/http2-bomb:latest
 ```
 
 ## Features
